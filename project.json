@@ -1,0 +1,33 @@
+{
+  "assets": [],
+  "build": {
+    "build_id": "D3A21F7B-11",
+    "build_number": 11,
+    "build_time": 1588175816080,
+    "release": true
+  },
+  "encryptLevel": 0,
+  "useFeatures": [],
+  "icon": "res/icon.png",
+  "launchConfig": {
+    "displaySplash": true,
+    "hideLogs": false,
+    "splashText": "Written by yobanihc",
+    "stableMode": false
+  },
+  "main": "main.js",
+  "name": "投降",
+  "optimization": {
+    "removeOpenCv": false,
+    "unusedResources": false
+  },
+  "packageName": "com.idontwannaplay3",
+  "scripts": {},
+  "signingConfig": {
+    "alias": "wolong",
+    "keystore": "/storage/emulated/0/autojs/.keystore/autojspro2.jks",
+    "uuid": "1c7294bb-74ed-49a7-b395-b07d6946c406"
+  },
+  "versionCode": 1,
+  "versionName": "1.0.0"
+}
