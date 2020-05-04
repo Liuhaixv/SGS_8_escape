@@ -251,6 +251,7 @@ function 开始挂机() {
     case 1: {
       while (true) {
         while (true) {
+          launch("com.sgs.bf.hdexp");
           //判断是否进入选将环节
           log("判断是否进入选将环节");
           if (is你的身份是主公() || is主公已选将()) {
@@ -271,7 +272,7 @@ function 开始挂机() {
             再来一局();
           }
 
-          sleep(1000);
+          sleep(2000);
         }
         选将();
 
