@@ -234,6 +234,13 @@ function has再来一局() {
   return result != null;
 }
 
+function has准备() {
+  var result = images.findImage(captureScreen(), images.read("./准备.png"), {
+    threshold: 0.8,
+  });
+  return result != null;
+}
+
 function 截图(x1, y1, x2, y2) {
   return images.clip(captureScreen(), x1, y1, x2 - x1, y2 - y1);
 }
@@ -272,10 +279,13 @@ function 开始挂机() {
   switch (mode) {
     case 1: {
       while (true) {
-        if (isAt自由场) {
+        if (isAt自由场()) {
           click(382, 331);
           sleep(500);
           click(1536, 541);
+        }
+        if (has准备()) {
+          click(952, 978);
         }
         if (has取消()) {
           投降();
@@ -283,7 +293,6 @@ function 开始挂机() {
           log("匹配总场次:" + matchesNumber);
           log("**********再接再厉**********");
           sleep(2000);
-          break;
         }
         if (has开始游戏()) {
           //换房
