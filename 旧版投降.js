@@ -7,6 +7,7 @@ var matchesNumber = 0;
 //var passedTime;
 init();
 开始挂机();
+
 function init() {
   //开启无障碍
   auto.waitFor();
@@ -21,12 +22,19 @@ function 开始挂机() {
     click(1164, 545);
     while (true) {
       if (currentPackage() != "com.bf.sgs.hdexp") {
-        log("当前不在游戏中");
+        toastLog("当前不在游戏中");
         启动游戏();
       }
       click(1164, 545);
       sleep(200);
       if (可以投降()) {
+        toast("可以投降");
+        /*
+                发话("在座各位都是我儿子，爸爸走了");
+                sleep(200);
+                click(1827, 44);
+                sleep(100);
+                */
         投降();
         log("**********投降退出**********");
         log("匹配总场次:" + ++matchesNumber);
@@ -38,11 +46,13 @@ function 开始挂机() {
     sleep(1500);
   }
 }
+
 function 可以投降() {
   var result = false;
   result = hasMenu();
   return result;
 }
+
 function 投降() {
   click(1827, 44);
   sleep(500);
@@ -50,6 +60,7 @@ function 投降() {
   sleep(500);
   click(778, 634);
 }
+
 function hasMenu() {
   var result = false;
   result = images.findImage(captureScreen(), images.read("./menu.png"), {
@@ -57,6 +68,7 @@ function hasMenu() {
   });
   return result;
 }
+
 function has八人军争场() {
   var result = false;
   result = images.findImage(captureScreen(), images.read("./8人军争场.png"), {
@@ -64,6 +76,7 @@ function has八人军争场() {
   });
   return result != null;
 }
+
 function 启动游戏() {
   app.launch("com.bf.sgs.hdexp");
   sleep(8000);
@@ -81,5 +94,19 @@ function 启动游戏() {
       return;
     }
     sleep(1000);
+  }
+}
+
+function 发话(str) {
+  click(149, 772);
+  sleep(100);
+  click(750, 770);
+  sleep(200);
+  if (className("android.widget.Button").exists()) {
+    className("android.widget.EditText").findOne().setText(str);
+    sleep(200);
+    className("android.widget.Button").text("  确定  ").findOne().click();
+    sleep(200);
+    click(1386, 765);
   }
 }
