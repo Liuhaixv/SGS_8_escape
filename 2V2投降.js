@@ -266,14 +266,26 @@ function 苦肉可发动() {
   return result != null;
 }
 
+function 发话(str) {
+  click(66,986);
+  sleep(100);
+  click(823, 756);
+  sleep(200);
+  if (className("android.widget.Button").exists()) {
+    className("android.widget.EditText").findOne().setText(str);
+    sleep(200);
+    className("android.widget.Button").text("  确定  ").findOne().click();
+    sleep(200);
+    click(1264, 766);
+  }
+}
 function 选将() {
   //点击选择武将
   click(277, 831);
   sleep(1500);
-  click(587, 437);
+  click(749, 417);
   sleep(100);
-  click(587, 437);
-}
+  click(749, 417);
 
 /**
  * 判断当前位置
@@ -306,10 +318,11 @@ function 开始挂机() {
         if (has开始游戏()) {
           click(952, 982);
           sleep(600);
+
           //换房
+          if (flagOfDividingInTwo % 2 == 0) {
           click(62, 1003);
           sleep(600);
-          if (flagOfDividingInTwo % 2 == 0) {
             click(219, 1003);
             flagOfDividingInTwo++;
           } else {
