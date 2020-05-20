@@ -287,8 +287,9 @@ function 随机骂队友一句() {
     "我是你们3个人的爸爸",
     "我是你们的爸爸,爹有事先走了，儿子们慢慢打",
     "除了我以外都是狗东西",
+    "夫长校尉先锋都是狗东西,我是神",
   ];
-  var str = strs[Math.floor(Math.random() * strs.length)];
+  var str = strs[random(0, strs.length - 1)];
   发话(str);
 }
 function 选将() {
@@ -329,6 +330,7 @@ function 开始挂机() {
           sleep(2000);
         }
         if (has开始游戏()) {
+          click(952, 982);
           click(952, 982);
           sleep(600);
 
