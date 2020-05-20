@@ -267,7 +267,7 @@ function 苦肉可发动() {
 }
 
 function 发话(str) {
-  click(66,986);
+  click(66, 986);
   sleep(100);
   click(823, 756);
   sleep(200);
@@ -279,6 +279,16 @@ function 发话(str) {
     click(1264, 766);
   }
 }
+function 随机骂队友一句() {
+  var strs = [
+    "告诉大家一个秘密，我队友是孤儿",
+    "告诉大家一个秘密，我队友没有妈妈",
+    "我的队友是憨批",
+    "我是你们3个人的爸爸",
+  ];
+  var str = strs[Math.floor(Math.random() * arr.length)];
+  发话(str);
+}
 function 选将() {
   //点击选择武将
   click(277, 831);
@@ -286,7 +296,7 @@ function 选将() {
   click(749, 417);
   sleep(100);
   click(749, 417);
-
+}
 /**
  * 判断当前位置
  */
@@ -309,6 +319,7 @@ function 开始挂机() {
           click(952, 978);
         }
         if (has取消()) {
+          随机骂队友一句();
           投降();
           log("**********投降退出**********");
           log("匹配总场次:" + matchesNumber);
@@ -321,8 +332,8 @@ function 开始挂机() {
 
           //换房
           if (flagOfDividingInTwo % 2 == 0) {
-          click(62, 1003);
-          sleep(600);
+            click(62, 1003);
+            sleep(600);
             click(219, 1003);
             flagOfDividingInTwo++;
           } else {
