@@ -323,6 +323,9 @@ function 开始挂机() {
           更新时间();
           toastLog("更新了时间:" + lastUpdatedTime);
         }
+        if (has可选武将()) {
+          选将();
+        }
         if (has取消()) {
           随机骂队友一句();
           投降();
