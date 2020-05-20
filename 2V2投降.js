@@ -240,7 +240,16 @@ function has准备() {
   });
   return result != null;
 }
-
+function has可选武将() {
+  var result = images.findImage(
+    captureScreen(),
+    images.read("./可选武将.png"),
+    {
+      threshold: 0.8,
+    }
+  );
+  return result != null;
+}
 function 截图(x1, y1, x2, y2) {
   return images.clip(captureScreen(), x1, y1, x2 - x1, y2 - y1);
 }
@@ -261,9 +270,9 @@ function 选将() {
   //点击选择武将
   click(277, 831);
   sleep(1500);
-  click(1101, 541);
+  click(587, 437);
   sleep(100);
-  click(1104, 541);
+  click(587, 437);
 }
 
 /**
@@ -300,7 +309,13 @@ function 开始挂机() {
           //换房
           click(62, 1003);
           sleep(600);
-          click(219, 1003);
+          if (flagOfDividingInTwo % 2 == 0) {
+            click(219, 1003);
+            flagOfDividingInTwo++;
+          } else {
+            click(507, 1003);
+            flagOfDividingInTwo--;
+          }
         }
         if (has托管中()) {
           log("取消了托管");
@@ -346,6 +361,6 @@ var MODES = {
   1: "卧龙投降",
 };
 var mode = 1;
-
+var flagOfDividingInTwo = 1;
 init();
 开始挂机();
