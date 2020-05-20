@@ -320,6 +320,8 @@ function 开始挂机() {
         }
         if (has准备()) {
           click(952, 978);
+          更新时间();
+          toastLog("更新了时间:" + lastUpdatedTime);
         }
         if (has取消()) {
           随机骂队友一句();
@@ -379,6 +381,33 @@ function to经典场() {
   }
   sleep(2000);
 }
+
+function 超时检测() {
+  if ((lastUpdatedTime = 0)) {
+    return;
+  }
+  let timeout = false;
+
+  let timeNow = new Date().getTime();
+  //距离上次更新时间经过的秒数
+  let timePastFromLastUpdate = (timeNow - lastUpdatedTime) / 1000;
+  log(timePastFromLastUpdate);
+  //60秒没有开局就默认游戏崩溃
+  if (timePastFromLastUpdate > 200) {
+    timeout = true;
+  }
+  if (timeout) {
+    toastLog("超时！重启游戏中");
+    engines.execScriptFile("./重启游戏.js");
+    engines.myEngine().forceStop();
+  }
+}
+
+function 更新时间() {
+  lastUpdatedTime = new Date().getTime();
+}
+
+var lastUpdatedTime = 0;
 //记录匹配过的场次
 var matchesNumber = 0;
 //记录苦肉过的次数
