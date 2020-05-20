@@ -295,10 +295,12 @@ function 开始挂机() {
           sleep(2000);
         }
         if (has开始游戏()) {
+          click(952, 982);
+          sleep(600);
           //换房
           click(62, 1003);
           sleep(600);
-          click(504, 1003);
+          click(219, 1003);
         }
         if (has托管中()) {
           log("取消了托管");
