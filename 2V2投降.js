@@ -286,7 +286,7 @@ function 随机骂队友一句() {
     "我的队友是憨批",
     "我是你们3个人的爸爸",
   ];
-  var str = strs[Math.floor(Math.random() * arr.length)];
+  var str = strs[Math.floor(Math.random() * strs.length)];
   发话(str);
 }
 function 选将() {
