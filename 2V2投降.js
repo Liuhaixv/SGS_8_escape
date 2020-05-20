@@ -383,7 +383,7 @@ function to经典场() {
 }
 
 function 超时检测() {
-  if ((lastUpdatedTime = 0)) {
+  if (lastUpdatedTime == 0) {
     return;
   }
   let timeout = false;
