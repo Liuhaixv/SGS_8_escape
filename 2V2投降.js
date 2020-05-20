@@ -398,7 +398,7 @@ function 超时检测() {
   }
   if (timeout) {
     toastLog("超时！重启游戏中");
-    engines.execScriptFile("./重启游戏.js");
+    engines.execScriptFile("./2V2投降重启游戏.js");
     engines.myEngine().forceStop();
   }
 }

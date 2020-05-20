@@ -1,4 +1,4 @@
-var path = "./旧版投降.js";
+var path = "./2V2投降.js";
 if (!files.exists(path)) {
   toast("脚本文件不存在: " + path);
   exit();
